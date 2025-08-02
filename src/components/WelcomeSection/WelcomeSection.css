@@ -1,0 +1,63 @@
+/* src/components/WelcomeSection.css */
+
+.welcome-section {
+    background-color: #f0f4f8; /* A light, calming blue background */
+    /* --- CRITICAL CHANGE: Reduced padding and removed margin-top --- */
+    padding: 30px 20px; /* Reduced top/bottom padding from 60px to 30px */
+    text-align: center;
+    margin-top: 0; /* Removed margin-top to reduce space from above sections */
+    /* --- END CRITICAL CHANGE --- */
+    border-top: 1px solid #dcdcdc; /* Subtle top border */
+    box-sizing: border-box; /* Ensure padding doesn't add to total width/height */
+    width: 100%; /* Ensure it spans full width */
+}
+
+.welcome-title {
+    font-size: 2.5em;
+    color: #2c3e50; /* Darker blue for title */
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555555;
+    max-width: 800px;
+    margin: 0 auto 30px auto; /* Center paragraph and add bottom margin */
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+.learn-more-button {
+    background-color: #6B9EBD; /* Warm blue, consistent with active links */
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-button:hover {
+    background-color: #5580a0; /* Slightly darker on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: 20px 15px; /* Further reduced padding for smaller screens */
+        /* Ensure margin-top is still 0 or adjusted for small screens if needed */
+        margin-top: 0;
+    }
+    .welcome-title {
+        font-size: 2em;
+    }
+    .welcome-text {
+        font-size: 1em;
+    }
+    .learn-more-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}

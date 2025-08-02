@@ -1,0 +1,314 @@
+/* Hero Section Container: The main wrapper for the entire carousel */
+.hero-section {
+    width: 100%; /* <--- CRITICAL CHANGE: Set width to 95% */
+    margin: 20px auto 0 auto; /* <--- CRITICAL CHANGE: Center the block horizontally */
+    overflow: hidden; /* Ensures no content overflows its bounds */
+    position: relative; /* Necessary for absolute positioning of children like arrows and overlay */
+}
+
+/* Individual Slide Styling: Styles applied to each slide item */
+.hero-slide {
+    position: relative;
+    height: 550px; /* Set a fixed height for consistency. Adjust as needed. */
+    display: flex !important; /* IMPORTANT: Overrides react-slick's default display: block; to enable flexbox for centering content */
+    justify-content: center; /* Horizontally center content inside the slide */
+    align-items: center; /* Vertically center content inside the slide */
+}
+
+/* Image within the Slide: Styling for the background image */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire slide area, cropping if aspect ratios don't match */
+    object-position: center; /* Centers the image within its container */
+    filter: brightness(75%); /* Applies a slight darkening to the image for better text readability */
+}
+
+/* Text Overlay: The transparent layer that holds the text on top of the image */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stacks text elements vertically */
+    justify-content: center; /* Vertically centers the text content */
+    align-items: center; /* Horizontally centers the text content */
+    text-align: center;
+    color: #ffffff; /* Sets text color to white for contrast */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay for text contrast */
+    border-radius: 0 !important; /* IMPORTANT: Ensures the overlay is a perfect rectangle, no rounded corners */
+    transform: none !important; /* IMPORTANT: Prevents any unintended transformations that could distort its shape */
+    backdrop-filter: none !important; /* IMPORTANT: Removes any potential blur effects on the overlay itself */
+    -webkit-backdrop-filter: none !important; /* For Safari compatibility */
+}
+
+/* Verse Text Styling: Specific styles for the verse text */
+.hero-verse-text {
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Subtle text shadow for better legibility without blurring */
+    max-width: 80%; /* Limits text width to prevent overly long lines */
+    line-height: 1.3; /* Improves readability for multi-line text */
+}
+
+/* React-slick Dot Navigation Styling: Styles for the pagination dots */
+.slick-dots {
+    position: absolute;
+    bottom: 25px; /* Positions dots slightly above the bottom edge */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    z-index: 20; /* Ensures dots are above the image/overlay */
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    font-size: 0; /* Hides default button text (usually numbers) */
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:before {
+    font-family: 'slick'; /* Uses slick's internal font for dots */
+    font-size: 12px; /* Size of the dot character */
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•'; /* The actual dot character */
+    text-align: center;
+    opacity: 0.7;
+    color: #ffffff; /* Color of inactive dots */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #6B9EBD; /* Accent color for the active dot */
+    opacity: 1;
+}
+
+/* --- CRITICAL FIXES FOR SLICK-CAROUSEL INTERNAL ELEMENTS (OVAL FLASHING) --- */
+/* These styles aim to aggressively reset and prevent any unwanted default styling,
+   especially during transitions. Applying `!important` to almost everything here
+   is necessary to override slick-theme.css's conflicting rules. */
+
+.slick-list {
+    border-radius: 0 !important; /* Ensures the list container has no rounded corners */
+    transform: none !important; /* Prevents any transformations that could distort its shape */
+    background: transparent !important; /* Removes any default background color from the list */
+    filter: none !important; /* Removes any filters (like blur) that might be applied */
+    -webkit-filter: none !important; /* Safari compatibility */
+    outline: none !important; /* Removes any focus outlines */
+    box-shadow: none !important; /* Removes any default box shadows */
+    /* Additions for animation flicker: */
+    will-change: transform, opacity, width, height; /* Hint to the browser for better animation performance */
+    -webkit-backface-visibility: hidden; /* Fixes potential flickering during hardware-accelerated transforms */
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0); /* Further ensure consistent 3D rendering context */
+    transform: translate3d(0, 0, 0);
+    overflow: hidden !important; /* Ensures any internal overflow is clipped */
+}
+
+.slick-track {
+    border-radius: 0 !important; /* Ensures the track container has no rounded corners */
+    transform: none !important; /* Prevents any transformations that could distort its shape */
+    background: transparent !important; /* Removes any default background color from the track */
+    filter: none !important; /* Removes any filters (like blur) that might be applied */
+    -webkit-filter: none !important; /* Safari compatibility */
+    box-shadow: none !important; /* Removes any default box shadows */
+    /* Additions for animation flicker: */
+    will-change: transform, opacity, width, height;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* --- CUSTOM ARROW STYLING START (Ensuring Visibility) --- */
+
+/* Target the main slick-arrow containers (.slick-prev, .slick-next) */
+/* These styles set up the basic positioning and ensure the arrow container is visible */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centers vertically */
+    display: block !important; /* ABSOLUTELY CRITICAL: Ensures the button container is visible */
+    visibility: visible !important; /* ABSOLUTELY CRITICAL: Ensures the button container is not hidden */
+    opacity: 1 !important; /* ABSOLUTELY CRITICAL: Ensures the button container is fully opaque */
+    z-index: 9999 !important; /* ABSOLUTELY CRITICAL: Ensures it's on top of ALL other elements */
+    
+    /* Clear out any default slick-carousel styles that might hide or distort */
+    background: transparent !important; /* Removes default background colors */
+    border: none !important; /* Removes default borders */
+    outline: none !important; /* Removes focus outlines */
+    font-size: 0 !important; /* Hides slick's default text/character */
+    line-height: 0 !important; /* Hides slick's default text/character */
+    color: transparent !important; /* Hides slick's default text/character color */
+    
+    /* Define the size of the clickable area for the arrow button */
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important; /* Removes any default padding */
+    
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+/* Positioning for the specific arrows */
+.slick-prev {
+    left: 20px !important; /* Positions the left arrow */
+}
+
+.slick-next {
+    right: 20px !important; /* Positions the right arrow */
+}
+
+/* CRITICAL: Hide slick-theme.css's default ::before content (the ugly chevron character) */
+/* This is the primary way to prevent the native slick arrow icon from appearing */
+.slick-prev:before,
+.slick-next:before {
+    content: '' !important; /* Removes the default slick arrow character */
+    display: none !important; /* Ensures the pseudo-element is not rendered at all */
+}
+
+/* Styling for our custom-arrow div, which contains the Font Awesome icon */
+/* This div is the actual circular visual button for the arrow */
+.custom-arrow {
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent black background for the circle */
+    border: 1px solid rgba(255, 255, 255, 0.7) !important; /* Subtle white border for the circle */
+    border-radius: 50% !important; /* Makes it a perfect circle */
+    
+    /* Make this custom-arrow div fill its parent (.slick-prev / .slick-next) to ensure clickable area matches visual */
+    /* width: 100% !important;
+    height: 100% !important; */
+    
+    /* Use flexbox to perfectly center the Font Awesome icon inside the circle */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+    /* Remove any extraneous padding/margin that might offset the centering */
+    padding: 0 !important;
+    margin: 0 !important;
+
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Smooth hover transitions */
+    /* Ensure custom-arrow itself is visible */
+    visibility: inherit !important;
+    opacity: 1 !important;
+}
+
+.custom-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Darker background on hover */
+    border-color: rgba(255, 255, 255, 1) !important; /* Solid white border on hover */
+    transform: translateY(-50%) scale(1.08) !important;/* Slightly enlarge the arrow container on hover */
+}
+
+/* Styling for the Font Awesome SVG icon itself (the chevron) */
+.custom-arrow svg {
+    color: #ffffff !important; /* White icon color for contrast */
+    font-size: 22px !important; /* Set the size of the chevron icon */
+    transition: transform 0.2s ease, color 0.3s ease; /* Smooth icon transitions */
+    /* Ensure SVG itself is visible */
+    display: inline-block !important; /* Sometimes SVGs get weird display properties */
+    visibility: inherit !important;
+    opacity: 1 !important;
+}
+
+.custom-arrow:hover svg {
+    transform: scale(1.1) !important;  /* Slightly enlarge icon on hover */
+    color: #6B9EBD !important; /* Change icon color to accent color on hover */
+}
+/* --- CUSTOM ARROW STYLING END --- */
+
+
+/* Responsive Adjustments for Hero Section: Media Queries for different screen sizes */
+@media (max-width: 992px) {
+    .hero-section {
+        width: 98%;
+        margin-top: 15px; /* Adjusted for smaller screens */
+    }
+    .hero-slide {
+        height: 450px;
+    }
+    .hero-verse-text {
+        font-size: 2em;
+    }
+    .slick-prev, .slick-next {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    .custom-arrow svg {
+        font-size: 20px !important;
+    }
+    .slick-prev { left: 15px !important; }
+    .slick-next { right: 15px !important; }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        width: 100%;
+        margin-top: 10px; /* Adjusted for smaller screens */
+    }
+    .hero-slide {
+        height: 380px;
+    }
+    .hero-verse-text {
+        font-size: 1.6em;
+    }
+    .slick-prev, .slick-next {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    .custom-arrow svg {
+        font-size: 18px !important;
+    }
+    .slick-dots {
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide {
+        height: 300px;
+    }
+    .hero-verse-text {
+        font-size: 1.3em;
+        padding: 0 10px;
+    }
+    .slick-prev, .slick-next {
+        width: 34px !important;
+        height: 34px !important;
+    }
+    .custom-arrow svg {
+        font-size: 16px !important;
+    }
+    .slick-prev { left: 10px !important; }
+    .slick-next { right: 10px !important; }
+}

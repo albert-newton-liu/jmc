@@ -1,0 +1,131 @@
+/* src/components/MinistrySection.css */
+
+.ministry-section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 60px; /* Space between different ministry sections */
+}
+
+.ministry-block-content-wrapper {
+    display: flex;
+    align-items: center; /* Vertically align image and text columns */
+    gap: 30px; /* Space between the three columns (image, text, image) */
+    justify-content: center; /* Center the entire block if total width is less than container */
+}
+
+/* Styling for the image columns (both left and right) */
+.ministry-image-column {
+    flex: 0 0 280px; /* Fixed width for each image column on large screens */
+    height: 320px; /* Fixed height for each image column */
+    overflow: hidden; /* Hide any overflow if image is larger */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ministry-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion, cropping if necessary */
+    object-position: center; /* Centers the image within its bounds */
+}
+
+/* Styling for the central text column */
+.ministry-text-column {
+    flex: 1; /* Text column takes the remaining available space */
+    min-width: 400px; /* Ensure content has a minimum readable width before wrapping/stacking */
+    text-align: center; /* Center the text within its own column */
+}
+
+.ministry-text-column h2 {
+    font-size: 2.5em;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.ministry-text-column p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555555;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* For screens where the three-column layout might be too cramped */
+@media (max-width: 1200px) {
+    .ministry-image-column {
+        flex: 0 0 250px; /* Slightly reduce image column width */
+        height: 300px;
+    }
+    .ministry-block-content-wrapper {
+        gap: 20px; /* Reduce gap */
+    }
+}
+
+/* Tablet / Smaller Desktop - Stack images on top of text */
+@media (max-width: 992px) {
+    .ministry-block-content-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 30px; /* Space between stacked elements */
+        padding: 0 15px; /* Add some horizontal padding to prevent content touching edges */
+    }
+
+    /* Adjust image column size when stacked */
+    .ministry-image-column {
+        flex: unset; /* Remove flex basis */
+        width: 80%; /* Make images take up most of the width of the parent */
+        max-width: 450px; /* Limit max width for stacked images */
+        height: 250px; /* Adjust height for stacked images */
+        margin: 0 auto; /* Center individual images when stacked */
+    }
+
+    /* Ensure text column takes full width when stacked */
+    .ministry-text-column {
+        flex: unset; /* Remove flex grow */
+        min-width: unset; /* Remove min-width restriction */
+        width: 100%; /* Take full available width */
+        text-align: center; /* Keep text centered when stacked */
+    }
+
+    .ministry-text-column h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    .ministry-text-column p {
+        font-size: 1em;
+    }
+
+    /* Order for stacked items: Left Image, Text, Right Image */
+    .ministry-image-left {
+        order: 1;
+    }
+    .ministry-text-column {
+        order: 2;
+    }
+    .ministry-image-right {
+        order: 3;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .ministry-section {
+        padding: 30px 15px;
+        margin-bottom: 40px;
+    }
+    .ministry-image-column {
+        width: 90%;
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ministry-text-column h2 {
+        font-size: 1.8em;
+    }
+    .ministry-image-column {
+        height: 180px;
+    }
+}

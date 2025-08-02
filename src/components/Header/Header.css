@@ -1,0 +1,103 @@
+/* General Header Styling */
+.main-header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out logo and nav items */
+    align-items: center; /* Vertically align items */
+    padding: 15px 30px; /* Top/bottom padding, left/right padding */
+    background-color: #E0E8F0; /* Light grayish-blue background */
+    color: #333333; /* Dark gray text color for general header text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Softer shadow for depth */
+    position: sticky; /* Makes the header stick to the top when scrolling */
+    top: 0; /* Stick to the very top */
+    z-index: 1000; /* Ensure header is above other content */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* Church Logo Styling */
+.church-logo a {
+    text-decoration: none; /* Remove underline from link */
+    color: #333333; /* Dark gray color for logo text if present */
+    /* Removed height property from here, it should only be on the image itself */
+}
+
+/* Specific styling for the logo image */
+.church-logo img.logo-image {
+    height: 45px; /* Adjust logo height as needed (e.g., 40px, 50px) */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image nicely */
+    /* If your logo has a lot of white space, you might need to adjust margin-right in the .church-logo a or .main-header */
+}
+
+/* Main Navigation Styling */
+.main-nav {
+    display: flex;
+    gap: 25px; /* Space between navigation links */
+}
+
+.main-nav a {
+    text-decoration: none; /* Remove underline from links */
+    color: #555555; /* Medium gray link color */
+    font-size: 17px; /* Slightly adjusted font size */
+    padding: 8px 15px; /* Padding for click area */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for hover */
+}
+
+/* Hover effect for navigation links */
+.main-nav a:hover {
+    background-color: rgba(107, 158, 189, 0.1); /* Soft, subtle hover background */
+    color: #6B9EBD; /* Warm blue on hover */
+}
+
+/* Active link styling (for current page) */
+.main-nav a.active-link {
+    background-color: #6B9EBD; /* Warm blue background for active link */
+    color: #ffffff; /* White text for active link */
+    font-weight: bold; /* Make active link text bolder */
+}
+
+/* Social Icon (IG link) Styling */
+.social-icon {
+    margin-left: 20px; /* Space between last nav item and IG */
+    font-weight: bold; /* Make it stand out */
+    color: #6B9EBD; /* Warm blue for social icon */
+    font-size: 17px; /* Consistent font size */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 15px 20px;
+        text-align: center; /* Center items on smaller screens */
+    }
+
+    .church-logo {
+        margin-bottom: 15px; /* Space below logo when stacked */
+        /* Removed height property from here, it should only be on the image itself */
+    }
+
+    /* Adjust logo size for smaller screens */
+    .church-logo img.logo-image {
+        height: 40px; /* Slightly smaller height on mobile */
+    }
+
+    .main-nav {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 8px; /* Smaller gap when stacked */
+        width: 100%; /* Make nav take full width */
+        text-align: center; /* Center align text */
+    }
+
+    .main-nav a {
+        padding: 10px; /* Larger tap area for mobile */
+        width: calc(100% - 20px); /* Account for padding */
+        display: block; /* Make links block level for full width click area */
+    }
+
+    .social-icon {
+        margin-left: 0; /* Remove left margin when stacked */
+        margin-top: 10px; /* Add space above social icon */
+        display: inline-block; /* Ensure social icon stays inline with text or for its own line */
+    }
+}

@@ -1,0 +1,94 @@
+/* src/components/GoalIntroductionSection.css */
+
+/* Main container for the Goal Introduction section */
+.goal-introduction-section {
+    padding: 30px; /* Adjust padding here if needed, might be overridden by Home.css */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-right: 20px;
+    height: 100%;
+}
+
+/* Container for the logo (now a flex item) */
+.logo-container-internal {
+    flex: 0 0 40%;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: initial;
+    /* Ensure logo container also takes full height to allow vertical centering */
+    height: 100%;
+}
+
+/* Styling for the church logo image itself */
+.goal-introduction-logo {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0;
+}
+
+.vision-mission-content {
+    flex: 1; /* Take remaining horizontal space */
+    display: flex;
+    flex-direction: column; /* Stack title and text vertically */
+    align-items: center; /* Center items horizontally within this column flex container */
+    justify-content: center; /* Center content vertically within this column flex container */
+    text-align: center; /* Ensures text lines themselves are centered */
+    height: 100%; /* CRITICAL: Make this content container take full available height */
+}
+
+/* Styling for the Vision & Mission title */
+.goal-introduction-title {
+    font-size: 1.8em;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Styling for the main goal text content */
+.goal-introduction-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555555;
+    white-space: pre-wrap;
+    margin-top: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .goal-introduction-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+        padding: 20px;
+        flex-direction: column; /* Stack logo and text vertically on smaller screens */
+        align-items: center; /* Center them when stacked */
+        height: auto; /* Reset height on small screens */
+    }
+
+    .logo-container-internal {
+        flex: none;
+        width: 100%;
+        max-width: 120px;
+        margin-bottom: 15px;
+        height: auto; /* Reset height on small screens */
+    }
+
+    .goal-introduction-logo {
+        height: auto;
+    }
+
+    .vision-mission-content {
+        flex: none;
+        width: 100%;
+        height: auto; /* Reset height on small screens */
+    }
+
+    .goal-introduction-title {
+        font-size: 1.5em;
+    }
+    .goal-introduction-text {
+        font-size: 1em;
+    }
+}

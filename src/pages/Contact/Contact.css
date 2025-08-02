@@ -1,0 +1,298 @@
+/* src/pages/Contact.css */
+
+.contact-page-container {
+    padding: 10px 10px;
+    padding-bottom: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    justify-content: center;
+    /* --- KEY CHANGE 1: For equal height children --- */
+    align-items: stretch; /* This makes flex items (the cards) stretch to the height of the tallest item */
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Card style for both contact details and form */
+.card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* --- KEY CHANGE 2: Remove hover effects --- */
+    /* Removed: transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+/* --- KEY CHANGE 3: Remove hover effects --- */
+/* Removed:
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+*/
+
+
+/* Left Section: Contact Details */
+.contact-details {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    border-left: 5px solid #6B9EBD;
+}
+
+.contact-details h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+.contact-details .detail-item {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows content within the item to wrap if needed (e.g., address) */
+}
+
+.contact-details .detail-item strong {
+    color: #333;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.contact-details .detail-item .address-lines {
+    display: block;
+    flex: 1; /* Allows address lines container to take remaining space within detail-item */
+}
+
+.contact-details .address-lines p {
+    margin: 0;
+    line-height: 1.5;
+    word-break: break-word;
+    display: block;
+}
+
+
+.social-links {
+    margin-top: 35px;
+    font-size: 1em;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    color: #6B9EBD;
+    text-decoration: none;
+    margin: 0 10px;
+    /* --- KEY CHANGE 4: Remove social link hover effect --- */
+    /* Removed: transition: color 0.3s ease, transform 0.2s ease; */
+    font-weight: bold;
+}
+
+/* Removed:
+.social-icon-link:hover {
+    color: #5580a0;
+    transform: translateY(-2px);
+}
+*/
+
+/* Right Section: Contact Form */
+.contact-form-container {
+    flex: 2;
+    min-width: 400px;
+    text-align: left;
+}
+
+.contact-form-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    box-sizing: border-box;
+    /* --- KEY CHANGE 5: Remove input focus transition for hover consistency --- */
+    /* Removed: transition: border-color 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #6B9EBD;
+    outline: none;
+    box-shadow: 0 0 8px rgba(107, 158, 189, 0.4);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .message-group {
+    margin-bottom: 30px;
+}
+
+.submit-button {
+    background-color: #6B9EBD;
+    color: #ffffff;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    /* --- KEY CHANGE 6: Remove button hover transitions --- */
+    /* Removed: transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; */
+    width: auto;
+    display: inline-block;
+}
+
+/* --- KEY CHANGE 7: Remove button hover effects --- */
+/* Removed:
+.submit-button:hover:not(:disabled) {
+    background-color: #5580a0;
+    transform: translateY(-2px);
+}
+*/
+
+.submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Submission Status Message */
+.submission-message {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.submission-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.submission-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .contact-content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px;
+    }
+
+    .contact-details,
+    .contact-form-container {
+        flex: unset;
+        min-width: unset;
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+        /* --- KEY CHANGE 8: Ensure stacked cards stretch when stacked if desired --- */
+        /* Removed align-self: stretch here if it was present, as main flex container handles it */
+    }
+
+    .contact-details h2 {
+        padding-left: 0;
+    }
+
+    .contact-details .detail-item {
+        justify-content: center;
+        flex-wrap: nowrap; /* When stacked, items within detail-item don't wrap, they stack (if needed) */
+    }
+    .contact-details .detail-item strong {
+        margin-right: 5px;
+    }
+
+    .contact-form {
+        text-align: left;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-page-container {
+        padding: 30px 15px;
+    }
+    .contact-page-container h1 {
+        font-size: 2.5em;
+    }
+    .contact-intro {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    .contact-content-wrapper {
+        padding: 20px;
+    }
+    .contact-details h2,
+    .contact-form-container h2 {
+        font-size: 1.8em;
+    }
+    .contact-details p {
+        font-size: 1em;
+    }
+}
+
+/* Further minor adjustments for very small screens */
+@media (max-width: 480px) {
+    .card {
+        padding: 25px 20px;
+    }
+    .contact-details h2,
+    .contact-form-container h2 {
+        font-size: 1.6em;
+    }
+}

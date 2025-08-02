@@ -1,0 +1,48 @@
+/* src/components/ServiceAnnouncement.css */
+
+.service-announcement-section {
+    padding: 30px; /* Adjust padding as needed, matching GoalIntroductionSection if desired */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    /* --- NEW ALIGNMENT FOR VERTICAL CENTERING OF TEXT CONTENT --- */
+    display: flex;
+    flex-direction: column; /* Keep content stacked */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    /* --- END NEW ALIGNMENT --- */
+}
+
+.announcement-content {
+    /* No specific changes needed here if parent is handling centering */
+    text-align: center; /* Ensure text lines are centered */
+}
+
+.announcement-title {
+    font-size: 1.8em;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.announcement-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555555;
+    white-space: pre-wrap; /* Preserve formatting */
+    margin-top: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .service-announcement-section {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .announcement-title {
+        font-size: 1.5em;
+    }
+    .announcement-text {
+        font-size: 1em;
+    }
+}

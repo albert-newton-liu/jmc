@@ -1,0 +1,49 @@
+/* General Footer Styling */
+.main-footer {
+    background-color: #E0E8F0; /* Light grayish-blue, consistent with header */
+    color: #555555; /* Medium gray text color */
+    padding: 30px 20px; /* Top/bottom padding, left/right padding */
+    text-align: center; /* Center align all text within the footer */
+    font-size: 15px; /* Adjust font size */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow above footer */
+    margin-top: auto; /* Pushes the footer to the bottom of the page if content is short */
+    width: 100%; /* Ensure it spans the full width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.main-footer p {
+    margin: 0 0 0 0; /* Remove default paragraph margin, add some bottom margin */
+    line-height: 1.6; /* Improve readability of text */
+}
+
+/* Styling for links within the footer */
+.main-footer a {
+    color: #6B9EBD; /* Warm blue for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.main-footer a:hover {
+    color: #333333; /* Darker gray on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Optional: Social media icons section in footer (if you add them as text/links) */
+.footer-social-links {
+    margin-top: 15px;
+}
+
+.footer-social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px; /* Size of social icons, adjust if using actual icons */
+    /* If you're using text, consider removing font-size or adjusting */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 20px 15px; /* Reduce padding on smaller screens */
+        font-size: 14px;
+    }
+}
