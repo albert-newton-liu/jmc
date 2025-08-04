@@ -1,5 +1,5 @@
 ## Jubilee Multicultural Church Website
-This repository contains the source code for the official website of the Jubilee Multicultural Church, which I write for my friend, daneil. The site is a modern, responsive single-page application built with React, designed to inform the community about upcoming events, provide contact information, and facilitate giving. You can view the live website here: https://jubileemulticulturalchurch.com/
+This repository contains the source code for the official website of the Jubilee Multicultural Church, which I write for my friend, Daniel Park. The site is a modern, responsive single-page application built with React, designed to inform the community about upcoming events, provide contact information, and facilitate giving. You can view the live website here: https://jubileemulticulturalchurch.com/
 
 ## Features
 Events Page: Displays a list of upcoming church events with details such as date, time, and location. Events are loaded dynamically with a "Load More" button for a better user experience.
