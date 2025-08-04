@@ -17,16 +17,18 @@ src/
 ├── components/          # Reusable UI components
 ├── constants/           # Constant data like event details
 ├── pages/               # Main page components (e.g., Giving, Contact, Events)
-│   ├── Giving.css
-│   ├── Giving.js
-│   ├── Contact.css
-│   ├── Contact.js
-│   ├── Events.css
-│   ├── Events.js
+│   ├── Giving/            # All Giving-related files are in this folder
+│   │   ├── Giving.css
+│   │   └── index.js
+│   ├── Contact/           # All Contact-related files are in this folder
+│   │   ├── Contact.css
+│   │   └── index.js
+│   ├── Events/            # All Events-related files are in this folder
+│   │   ├── Events.css
+│   │   └── index.js
 │   └── ...
 ├── App.js               # Main application component and routing setup
 ├── index.js             # Entry point of the application
-└── ...
 ```
 
 
