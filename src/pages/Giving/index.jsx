@@ -34,9 +34,9 @@ const Giving = () => {
 
       {/* Bank Information Section */}
       <div className="bank-info-section card"> {/* Using 'card' class for consistent styling */}
-        <h3>Bank Details for Tithes</h3>
+        <h3>Bank Details for Offerings</h3>
         <div className="bank-detail-item">
-          <strong>Bank Name:</strong> <span className="bank-info-value">Auckland Savings Bank (ASB)</span>
+          <strong>Bank Name:</strong> <span className="bank-info-value">ASB</span>
         </div>
         <div className="bank-detail-item">
           <strong>Account Name:</strong> <span className="bank-info-value">Jubilee Multicultural Church</span>

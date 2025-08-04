@@ -5,6 +5,7 @@
     max-width: 1000px; /* Max width for the content for readability */
     margin: 0 auto; /* Centers the page content */
     text-align: center; /* Default text alignment for the page */
+    box-sizing: border-box; /* IMPORTANT: Ensures padding is included in the element's total width */
 }
 
 /* Top Image Section */
@@ -31,6 +32,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
     text-align: left; /* Align text within this section to the left */
     width: 100%; /* Ensure this section takes full width */
+    box-sizing: border-box;
 }
 
 .giving-words-section p {
@@ -59,10 +61,8 @@
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
-    /* max-width: 600px; -- REMOVED/COMMENTED OUT THIS LINE TO ALLOW 100% WIDTH */
-    /* margin-left: auto; */ /* No longer strictly needed for width, but harmless for centering content if text-align is left */
-    /* margin-right: auto; */ /* Same as above */
     text-align: center; /* Centers text inside the card, including bank details */
+    box-sizing: border-box;
 }
 
 .bank-info-section h3 {
@@ -111,6 +111,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 40px; /* Space before the footer */
+    box-sizing: border-box;
 }
 
 .feedback-title {
@@ -153,6 +154,7 @@
 @media (max-width: 768px) {
     .giving-page-container {
         padding: 30px 15px;
+        max-width: 100%; /* Ensure it doesn't exceed screen width */
     }
     .giving-words-section,
     .bank-info-section,

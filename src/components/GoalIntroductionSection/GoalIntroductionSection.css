@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column; /* Stack title and text vertically */
     align-items: center; /* Center items horizontally within this column flex container */
-    justify-content: center; /* Center content vertically within this column flex container */
+    justify-content: center; /* Vertically center content within this column flex container */
     text-align: center; /* Ensures text lines themselves are centered */
     height: 100%; /* CRITICAL: Make this content container take full available height */
 }
@@ -68,11 +68,7 @@
     }
 
     .logo-container-internal {
-        flex: none;
-        width: 100%;
-        max-width: 120px;
-        margin-bottom: 15px;
-        height: auto; /* Reset height on small screens */
+        display: none; /* Hide the logo on mobile devices */
     }
 
     .goal-introduction-logo {
@@ -80,9 +76,10 @@
     }
 
     .vision-mission-content {
-        flex: none;
-        width: 100%;
-        height: auto; /* Reset height on small screens */
+        /* No explicit width/flex properties needed, it will fill the available space */
+        max-width: 100%;
+        height: auto;
+        /* Remove the order property as the logo is now hidden */
     }
 
     .goal-introduction-title {

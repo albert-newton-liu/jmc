@@ -27,8 +27,7 @@
 /* Specific styling for the Goal Introduction Section (Left Column) */
 .home-two-column-section > .goal-introduction-section {
     flex: 7;
-    min-width: 400px;
-    max-width: calc(70% - 15px);
+    max-width: calc(70% - 15px); /* Changed to use max-width for flexibility */
     box-sizing: border-box;
     display: flex !important;
     flex-direction: row !important; /* Keep as row for internal layout */
@@ -42,8 +41,7 @@
 /* Specific styling for the Service Announcement Section (Right Column) */
 .home-two-column-section > .service-announcement-section {
     flex: 3;
-    min-width: 250px;
-    max-width: calc(30% - 15px);
+    max-width: calc(30% - 15px); /* Changed to use max-width for flexibility */
     box-sizing: border-box;
     display: flex; /* Ensure it's a flex container for its own content */
     flex-direction: column; /* Stack content internally */
@@ -53,7 +51,6 @@
     height: auto; /* Ensure it doesn't have a fixed height preventing stretch */
     min-height: 250px; /* Optional: Set a minimum height if content is too short */
 }
-
 
 /* Responsive adjustments for the two-column section */
 @media (max-width: 768px) {
@@ -69,6 +66,7 @@
 
     .home-two-column-section > .goal-introduction-section,
     .home-two-column-section > .service-announcement-section {
+        flex: 0 0 100%; /* Make them take full width on mobile */
         min-width: unset;
         max-width: 100%;
         height: auto;

@@ -17,7 +17,7 @@ export default function GoalIntroductionSection() {
       <div className="logo-container-internal">
         {/* Church logo - ensure this path is correct for your logo */}
         <img
-          src="/logo.png"
+          src="/logo/logo.png"
           alt="Jubilee Multicultural Church Logo"
           className="goal-introduction-logo"
         />

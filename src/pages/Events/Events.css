@@ -20,10 +20,8 @@
 /* Grid container for arranging event poster cards */
 .events-grid {
     display: grid; /* Enables CSS Grid layout */
-    /* Defines responsive columns:
-       - auto-fit: Fits as many columns as possible
-       - minmax(280px, 1fr): Each column will be at least 280px wide, and take up equal fractional space */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Defines 3 responsive columns with equal width */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px; /* Spacing between grid items (rows and columns) */
     justify-content: center; /* Centers grid items horizontally if they don't fill the entire row */
     align-items: stretch; /* Makes all grid items (poster cards) stretch to the height of the tallest item in their row */
@@ -50,7 +48,7 @@
 /* Container for the poster image, used to maintain aspect ratio */
 .poster-image-container {
     width: 100%; /* Takes full width of its parent card */
-    padding-bottom: 150%; /* Creates a 2:3 aspect ratio (height is 1.5 * width), common for posters */
+    padding-bottom: 100%; /* Creates a wider aspect ratio for the image (square) */
     position: relative; /* Needed for absolute positioning of the image */
     background-color: #f0f0f0; /* Light grey background as a fallback/placeholder */
 }
@@ -125,6 +123,14 @@
     opacity: 0.8; /* Slightly transparent */
 }
 
+
+/* Responsive adjustments for screens smaller than 1024px */
+@media (max-width: 1024px) {
+    .events-grid {
+        /* Changes to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* Responsive adjustments for screens smaller than 768px */
 @media (max-width: 768px) {

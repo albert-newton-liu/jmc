@@ -15,8 +15,8 @@ const Ministry = () => {
         imageRight="/images/ministry3.jpg"
       >
         <p>
-          Our worship team is made up of passionate and talented members from diverse cultural backgrounds.
-          Dayana leads the team with vocals and keyboard, Amir plays acoustic guitar, Nathan plays bass, and Rebeca on vocals.<br />
+          Our worship team is made up of passionate and talented members from diverse cultural backgrounds. 
+          Dayana serves the team with vocals and keyboard, Amir plays the acoustic guitar, Nathan plays the bass, Alastair is on the cajón, and Rebeca sings vocals.<br/>
           Together, they joyfully lead our congregation into heartfelt worship each week, creating an atmosphere where people from all nations can encounter the presence of God.
         </p>
       </MinistrySection>

@@ -6,6 +6,7 @@
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    box-sizing: border-box; /* Ensures padding is part of the total width */
 }
 
 .contact-intro {
@@ -15,6 +16,7 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .contact-content-wrapper {
@@ -25,6 +27,7 @@
     gap: 50px;
     max-width: 1000px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* Card style for both contact details and form */
@@ -33,18 +36,8 @@
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    /* --- KEY CHANGE 2: Remove hover effects --- */
-    /* Removed: transition: transform 0.3s ease, box-shadow 0.3s ease; */
+    box-sizing: border-box;
 }
-
-/* --- KEY CHANGE 3: Remove hover effects --- */
-/* Removed:
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-*/
-
 
 /* Left Section: Contact Details */
 .contact-details {
@@ -52,6 +45,7 @@
     min-width: 300px;
     text-align: left;
     border-left: 5px solid #6B9EBD;
+    box-sizing: border-box;
 }
 
 .contact-details h2 {
@@ -104,23 +98,16 @@
     color: #6B9EBD;
     text-decoration: none;
     margin: 0 10px;
-    /* --- KEY CHANGE 4: Remove social link hover effect --- */
-    /* Removed: transition: color 0.3s ease, transform 0.2s ease; */
     font-weight: bold;
 }
 
-/* Removed:
-.social-icon-link:hover {
-    color: #5580a0;
-    transform: translateY(-2px);
-}
-*/
 
 /* Right Section: Contact Form */
 .contact-form-container {
     flex: 2;
     min-width: 400px;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .contact-form-container h2 {
@@ -151,8 +138,6 @@
     font-size: 1em;
     color: #333;
     box-sizing: border-box;
-    /* --- KEY CHANGE 5: Remove input focus transition for hover consistency --- */
-    /* Removed: transition: border-color 0.3s ease, box-shadow 0.3s ease; */
 }
 
 .contact-form input:focus,
@@ -180,19 +165,9 @@
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
-    /* --- KEY CHANGE 6: Remove button hover transitions --- */
-    /* Removed: transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; */
     width: auto;
     display: inline-block;
 }
-
-/* --- KEY CHANGE 7: Remove button hover effects --- */
-/* Removed:
-.submit-button:hover:not(:disabled) {
-    background-color: #5580a0;
-    transform: translateY(-2px);
-}
-*/
 
 .submit-button:disabled {
     background-color: #cccccc;
@@ -227,8 +202,8 @@
 @media (max-width: 992px) {
     .contact-content-wrapper {
         flex-direction: column;
-        gap: 40px;
-        padding: 30px;
+        gap: 20px;
+        padding: 0 15px;
     }
 
     .contact-details,
@@ -238,8 +213,14 @@
         width: 100%;
         padding-right: 0;
         text-align: center;
-        /* --- KEY CHANGE 8: Ensure stacked cards stretch when stacked if desired --- */
-        /* Removed align-self: stretch here if it was present, as main flex container handles it */
+    }
+
+    .contact-details {
+        padding: 30px 20px;
+    }
+
+    .contact-form-container {
+        padding: 30px 20px;
     }
 
     .contact-details h2 {
@@ -275,7 +256,7 @@
         margin-bottom: 30px;
     }
     .contact-content-wrapper {
-        padding: 20px;
+        padding: 10px;
     }
     .contact-details h2,
     .contact-form-container h2 {
@@ -284,13 +265,13 @@
     .contact-details p {
         font-size: 1em;
     }
+    .card {
+        padding: 20px;
+    }
 }
 
 /* Further minor adjustments for very small screens */
 @media (max-width: 480px) {
-    .card {
-        padding: 25px 20px;
-    }
     .contact-details h2,
     .contact-form-container h2 {
         font-size: 1.6em;

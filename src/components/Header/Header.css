@@ -1,103 +1,151 @@
 /* General Header Styling */
 .main-header {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space out logo and nav items */
-    align-items: center; /* Vertically align items */
-    padding: 15px 30px; /* Top/bottom padding, left/right padding */
-    background-color: #E0E8F0; /* Light grayish-blue background */
-    color: #333333; /* Dark gray text color for general header text */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Softer shadow for depth */
-    position: sticky; /* Makes the header stick to the top when scrolling */
-    top: 0; /* Stick to the very top */
-    z-index: 1000; /* Ensure header is above other content */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #E0E8F0;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 /* Church Logo Styling */
 .church-logo a {
-    text-decoration: none; /* Remove underline from link */
-    color: #333333; /* Dark gray color for logo text if present */
-    /* Removed height property from here, it should only be on the image itself */
+    text-decoration: none;
+    color: #333333;
 }
 
-/* Specific styling for the logo image */
 .church-logo img.logo-image {
-    height: 45px; /* Adjust logo height as needed (e.g., 40px, 50px) */
-    width: auto; /* Maintain aspect ratio */
-    vertical-align: middle; /* Align image nicely */
-    /* If your logo has a lot of white space, you might need to adjust margin-right in the .church-logo a or .main-header */
+    height: 45px;
+    width: auto;
+    vertical-align: middle;
+    padding: 0px 0px !important;
 }
 
-/* Main Navigation Styling */
+/* Main Navigation Styling - Desktop */
 .main-nav {
     display: flex;
-    gap: 25px; /* Space between navigation links */
+    align-items: center;
+    gap: 25px;
+    transition: transform 0.3s ease-in-out; /* Add transition for mobile slide-in */
 }
 
 .main-nav a {
-    text-decoration: none; /* Remove underline from links */
-    color: #555555; /* Medium gray link color */
-    font-size: 17px; /* Slightly adjusted font size */
-    padding: 8px 15px; /* Padding for click area */
-    border-radius: 5px; /* Slightly rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for hover */
+    text-decoration: none;
+    color: #555555;
+    font-size: 17px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect for navigation links */
 .main-nav a:hover {
-    background-color: rgba(107, 158, 189, 0.1); /* Soft, subtle hover background */
-    color: #6B9EBD; /* Warm blue on hover */
+    background-color: rgba(107, 158, 189, 0.1);
+    color: #6B9EBD;
 }
 
-/* Active link styling (for current page) */
 .main-nav a.active-link {
-    background-color: #6B9EBD; /* Warm blue background for active link */
-    color: #ffffff; /* White text for active link */
-    font-weight: bold; /* Make active link text bolder */
+    background-color: #6B9EBD;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 /* Social Icon (IG link) Styling */
 .social-icon {
-    margin-left: 20px; /* Space between last nav item and IG */
-    font-weight: bold; /* Make it stand out */
-    color: #6B9EBD; /* Warm blue for social icon */
-    font-size: 17px; /* Consistent font size */
+    margin-left: 20px;
+    margin-right: 100px;
+    font-weight: bold;
+    color: #6B9EBD;
+    font-size: 17px;
 }
 
-/* Responsive Design for smaller screens */
+/* Hamburger menu icon for mobile */
+.hamburger-icon {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Responsive Design for smaller screens --- */
 @media (max-width: 768px) {
+    /* Prevents horizontal overflow on small screens */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Main header layout for mobile */
     .main-header {
-        flex-direction: column; /* Stack logo and nav vertically */
         padding: 15px 20px;
-        text-align: center; /* Center items on smaller screens */
+        flex-wrap: nowrap; /* Prevent wrapping and keep logo/hamburger on one line */
     }
 
-    .church-logo {
-        margin-bottom: 15px; /* Space below logo when stacked */
-        /* Removed height property from here, it should only be on the image itself */
-    }
-
-    /* Adjust logo size for smaller screens */
-    .church-logo img.logo-image {
-        height: 40px; /* Slightly smaller height on mobile */
-    }
-
+    /* Mobile navigation menu - overlay style */
     .main-nav {
-        flex-direction: column; /* Stack nav links vertically */
-        gap: 8px; /* Smaller gap when stacked */
-        width: 100%; /* Make nav take full width */
-        text-align: center; /* Center align text */
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50%;
+        max-width: 300px;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%); /* Initially hidden off-screen to the right */
+        gap: 0; /* Override the desktop gap property */
+        align-items: center; /* Center-align items horizontally within the flex container */
     }
 
-    .main-nav a {
-        padding: 10px; /* Larger tap area for mobile */
-        width: calc(100% - 20px); /* Account for padding */
-        display: block; /* Make links block level for full width click area */
+    /* Active state for mobile menu */
+    .main-nav.nav-open {
+        transform: translateX(0); /* Slides into view when active */
     }
 
-    .social-icon {
-        margin-left: 0; /* Remove left margin when stacked */
-        margin-top: 10px; /* Add space above social icon */
-        display: inline-block; /* Ensure social icon stays inline with text or for its own line */
+    /* Styling for links inside the mobile menu */
+    .main-nav a, .main-nav .social-icon {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0; /* Adjusted vertical padding for better spacing */
+        border-bottom: 1px solid #eee;
+        margin: 0; /* Remove all margins to prevent unwanted space */
+    }
+
+    .main-nav a:last-of-type, .main-nav .social-icon {
+        border-bottom: none; /* No border for the last item */
+    }
+    
+    /* Display hamburger icon on mobile */
+    .hamburger-icon {
+        display: flex;
+    }
+
+    /* Hamburger icon animation when open */
+    .hamburger-icon .top-bar-open {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-icon .middle-bar-open {
+        opacity: 0;
+    }
+    .hamburger-icon .bottom-bar-open {
+        transform: translateY(-11px) rotate(-45deg);
     }
 }

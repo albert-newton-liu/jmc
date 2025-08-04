@@ -49,7 +49,7 @@ const AboutContentSection = () => {
             </AboutBlock>
 
             <AboutBlock
-                title="Leaders Daniel & Dayan"
+                title="Pastor Daniel"
                 imageUrl="/images/about3.jpeg"
                 imageLeft={true}
             >
@@ -58,7 +58,6 @@ const AboutContentSection = () => {
                     He then earned a Master of Divinity from Coram Deo Seminary and also completed a two-year Intercultural Studies Diploma at Eastwest College.
                     He was ordained as a pastor in 2017 and has been serving Jubilee Multicultural Church since 2024.<br/>
                     Dayana grew up in Brazil and has been living in New Zealand since marrying Daniel in 2016.
-                    She completed her Master’s degree in Accounting at the University of Waikato and currently works as a Chartered Accountant. At JMC, she serves as a worship leader.
                     Together, Daniel and Dayana carry a deep passion and calling to serve in a multicultural church context, desiring to see people from all nations worship and grow together in Christ.
                 </p>
             </AboutBlock>

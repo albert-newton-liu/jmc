@@ -1,38 +1,7 @@
 // src/pages/Events.js
 import React, { useState } from 'react'; // Import useState hook for managing component state
-import './Events.css'; // Import the CSS file for styling
-
-// Mock event data. In a real application, this would typically come from an API.
-const ALL_EVENTS_DATA = [
-    {
-        id: 1,
-        title: 'Community Outreach Day',
-        date: 'August 15, 2025',
-        time: '10:00 AM - 3:00 PM',
-        location: 'Local Park',
-        description: 'Join us for a day of serving our community. Food, games, and fellowship!',
-        posterUrl: '/images/events/ event1.png' // Placeholder image URL
-    },
-    {
-        id: 2,
-        title: 'Youth Group Night',
-        date: 'August 22, 2025',
-        time: '7:00 PM - 9:00 PM',
-        location: 'Church Hall',
-        description: 'Fun activities, worship, and Bible study for all youth.',
-        posterUrl: '/images/events/event2.png'
-    },
-    {
-        id: 3,
-        title: 'Sunday Service Special Guest',
-        date: 'August 29, 2025',
-        time: '5:00 PM',
-        location: 'S Block Building, Vision College',
-        description: 'Special worship service with guest speaker Rev. John Doe.',
-        posterUrl: '/images/events/event3.png'
-    }
-    // Add more events here to test the "Load More" functionality
-];
+import {ALL_EVENTS_DATA} from '../../constants/Constant'
+import './Events.css'; 
 
 const EVENTS_PER_LOAD = 3; // Defines how many events to load each time the "Load More" button is clicked
 
@@ -70,7 +39,7 @@ const Events = () => {
                         {/* Container for event details */}
                         <div className="event-details">
                             <h3>{event.title}</h3> {/* Event title */}
-                            <p><strong>When:</strong> {event.date} at {event.time}</p> {/* Event date and time */}
+                            <p><strong>When:</strong> {event.date} {event.time == '' ? "" : "at " + event.time}</p> {/* Event date and time */}
                             <p><strong>Where:</strong> {event.location}</p> {/* Event location */}
                             {/* Uncomment below if you want to show description
                             <p className="event-description">{event.description}</p>
