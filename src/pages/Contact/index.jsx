@@ -20,6 +20,7 @@ const Contact = () => {
   });
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
   const [isSubmitting, setIsSubmitting] = useState(false); // To prevent multiple submissions
+  const [validationError, setValidationError] = useState(''); // New state for validation errors
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,25 +32,33 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Disable button during submission
-    setSubmitStatus(null); // Clear previous status
+    setValidationError(''); // Clear any previous validation errors
 
-    console.log('Form data submitted:', formData);
+    // Explicit validation check
+    if (!formData.name || !formData.email || !formData.message) {
+      setValidationError('Please fill in all fields.');
+      return; // Stop the submission
+    }
+
+    setIsSubmitting(true); // Disable button during submission
+    setSubmitStatus(null); // Clear previous submission status
 
     try {
-      // For demonstration, simulate success or failure randomly, or always success
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
+      const response = await fetch('https://jubileemulticulturalchurch.com/api/sendmail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-      const success = true; // Set to false to test error state
-
-      if (success) {
+      if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' }); // Clear form on success
+        setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false); // Re-enable button
@@ -76,9 +85,9 @@ const Contact = () => {
           <div className="detail-item">
             <strong>Address:</strong>
             <div className="address-lines">
-                {CONTACT_DETAILS.address.split('\n').map((line, index) => (
-                    <p key={index}>{line}</p>
-                ))}
+              {CONTACT_DETAILS.address.split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
             </div>
           </div>
 
@@ -133,6 +142,10 @@ const Contact = () => {
                 disabled={isSubmitting}
               ></textarea>
             </div>
+            {/* Display validation error message */}
+            {validationError && (
+              <p className="submission-message error">{validationError}</p>
+            )}
             <button type="submit" className="submit-button" disabled={isSubmitting}>
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>

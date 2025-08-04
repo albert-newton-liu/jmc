@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate} from 'react-router-dom';
 import { useEffect } from 'react';
 
 
@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Events />} />
         <Route path="/giving" element={<Giving />} />
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </Router>
