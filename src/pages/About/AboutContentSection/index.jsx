@@ -39,7 +39,7 @@ const AboutContentSection = () => {
             </AboutBlock>
 
             <AboutBlock
-                title="Vision statments"
+                title="Vision statements"
                 imageUrl="/images/about2.jpg"
                 imageLeft={false}
             >

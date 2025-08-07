@@ -1,49 +1,44 @@
 /* src/pages/Giving.css */
 
 .giving-page-container {
-    padding: 40px 20px; /* Padding around the page content */
-    max-width: 1000px; /* Max width for the content for readability */
-    margin: 0 auto; /* Centers the page content */
-    text-align: center; /* Default text alignment for the page */
-    box-sizing: border-box; /* IMPORTANT: Ensures padding is included in the element's total width */
-}
-
-/* Top Image Section */
-.giving-top-image-container {
-    width: 100%;
-    margin-bottom: 50px; /* Space below the image */
-    overflow: hidden; /* Ensures image fits within its container */
-    border-radius: 10px; /* Slightly rounded corners for the image container */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
-}
-
-.giving-banner-image {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
-}
-
-/* Giving Words Section */
-.giving-words-section {
-    margin-bottom: 50px; /* Space below this section */
-    background-color: #f9f9f9; /* Light background for the text box */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-    text-align: left; /* Align text within this section to the left */
-    width: 100%; /* Ensure this section takes full width */
+    padding: 40px 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
     box-sizing: border-box;
 }
 
-.giving-words-section p {
-    text-align: center; /* This will center all paragraphs within this section */
+.giving-words-section-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.giving-section-icon {
+    width: 40%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.giving-words-content {
+    flex: 1;
 }
 
 .giving-words-title {
     font-size: 1.9em;
     color: #333;
     margin-bottom: 20px;
-    text-align: center; /* Center the title within its section */
+    text-align: left;
+}
+
+.giving-words-content p {
+    text-align: left;
 }
 
 .giving-words-text {
@@ -53,65 +48,30 @@
     margin-bottom: 15px;
 }
 
-/* Bank Information Section (using a consistent 'card' style) */
-.bank-info-section {
-    width: 100%; /* Ensures this section takes full width */
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
-    text-align: center; /* Centers text inside the card, including bank details */
-    box-sizing: border-box;
-}
-
-.bank-info-section h3 {
-    font-size: 1.9em;
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center; /* Center the title within its card */
-}
-
-.bank-detail-item {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 15px;
-    display: flex; /* Keeps strong and span inline */
-    align-items: flex-start; /* Aligns items to the start of the cross-axis */
-    gap: 8px;
-    line-height: 1.5;
-    justify-content: center; /* Centers the label and value horizontally */
-    flex-wrap: wrap; /* Allows label and value to wrap if space is limited */
-}
-
-.bank-detail-item strong {
-    color: #333;
-    flex-shrink: 0; /* Prevent label from shrinking */
-}
-
-.bank-info-value {
-    font-weight:lighter; /* Make the actual bank info values bold */
-    color: #444;
-}
-
-.bank-info-note {
-    font-size: 0.9em;
-    color: #777;
-    margin-top: 25px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-    text-align: center; /* Center the note */
+/* New container for side-by-side cards */
+.info-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
 }
 
 /* Feedback Section */
 .feedback-section {
-    width: 100%; /* Ensures this section takes full width */
-    background-color: #f0f0f0; /* Light grey background for feedback section */
+    flex: 1;
+    /* Allows the section to grow and shrink */
+    max-width: 60%;
+    background-color: #ffffff;
+    /* Consistent with the light card style */
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px; /* Space before the footer */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    display: flex;
+    /* Using flex to align content */
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pushes the button to the bottom */
 }
 
 .feedback-title {
@@ -126,13 +86,10 @@
     color: #555;
     line-height: 1.6;
     margin-bottom: 30px;
-    max-width: 800px; /* Still good to limit text width for readability, but can be adjusted */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .contact-us-button {
-    background-color: #6B9EBD; /* Your brand color */
+    background-color: #6B9EBD;
     color: #ffffff;
     padding: 12px 25px;
     border: none;
@@ -142,7 +99,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
-    align-items: center;
+    align-self: center;
+    /* Center the button within the flex container */
 }
 
 .contact-us-button:hover {
@@ -150,36 +108,192 @@
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
+/* 银行卡样式 */
+.bank-card-container {
+    flex: 1;
+    /* Allows the card to grow and shrink */
+    max-width: 40%;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    color: #333333;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.bank-card-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.bank-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bank-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.bank-card-chip {
+    width: 40px;
+    height: 30px;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.bank-card-details {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bank-card-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    line-height: 30px;
+}
+
+.detail-label {
+    opacity: 0.8;
+}
+
+.detail-value {
+    font-weight: bold;
+}
+
+.account-number {
+    font-size: 1.4em;
+    letter-spacing: 1.5px;
+}
+
+.bank-card-note {
+    font-size: 0.9em;
+    opacity: 0.9;
+    font-style: italic;
+    margin-top: auto;
+}
+
+.bank-card-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    opacity: 0.1;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .info-cards-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feedback-section {
+        max-width: 100%;
+        order: 2;
+        /* Ensures Feedback Section is below the bank card */
+    }
+
+    .bank-card-container {
+        max-width: 100%;
+        order: 1;
+        /* Ensures Bank Card is above the feedback section */
+    }
+}
+
 @media (max-width: 768px) {
     .giving-page-container {
         padding: 30px 15px;
-        max-width: 100%; /* Ensure it doesn't exceed screen width */
+        max-width: 100%;
     }
-    .giving-words-section,
-    .bank-info-section,
-    .feedback-section {
-        padding: 25px;
-        margin-bottom: 30px;
+
+    .giving-words-section-wrapper {
+        flex-direction: column;
+        /* 小屏幕上垂直排列 */
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
     }
-    .giving-words-title,
-    .bank-info-section h3, /* Ensure this matches your JSX h3 */
-    .feedback-title {
-        font-size: 2em; /* Keep it consistent or adjust for smaller screens */
+
+    /* 小屏幕上图片重新占据较小空间 */
+    .giving-section-icon {
+        width: 100%;
+        /* 图片现在将与容器同宽 */
+    }
+
+    .giving-words-content {
+        text-align: center;
+    }
+
+    .giving-words-title {
+        font-size: 1.3em;
         margin-bottom: 15px;
     }
+
+    .giving-words-section-wrapper,
+    .feedback-section {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+
+    .bank-card-container {
+        padding: 25px;
+        margin: 30px auto;
+    }
+
+    .bank-card-title {
+        font-size: 1.3em;
+    }
+
+    .bank-card-details .bank-card-row:nth-child(1) {
+        margin-right: 60%;
+    }
+
+    .bank-card-details .bank-card-row:nth-child(2),
+    .bank-card-details .bank-card-row:nth-child(3) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .account-number {
+        font-size: 1.2em;
+    }
+
+    .feedback-title {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
     .giving-words-text,
-    .bank-detail-item,
     .feedback-text {
         font-size: 1em;
     }
-    .bank-detail-item {
-        flex-direction: column; /* Stack label and value on small screens */
-        align-items: center; /* Center stacked items horizontally */
-        gap: 5px;
-    }
+
     .contact-us-button {
-        width: 100%; /* Full width button on small screens */
+        width: 100%;
         padding: 10px 20px;
     }
 }
@@ -188,12 +302,13 @@
     .giving-page-container {
         padding: 20px 10px;
     }
+
     .giving-top-image-container {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
+
     .giving-words-title,
-    .bank-info-section h3, /* Ensure this matches your JSX h3 */
     .feedback-title {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
 }
