@@ -1,39 +1,48 @@
 export const ALL_EVENTS_DATA = [
     {
-        id: 1,
+        id: 10,
+        title: 'FAMILY GATHERING',
+        date: '27 September',
+        time: '3:30 PM - 7:00 PM',
+        location: '35 College Drive Gordonton, WEC INTERNATIONAL',
+        description: '',
+        posterUrl: '/images/events/event10.jpeg' // Placeholder image URL
+    },
+    {
+        id: 9,
         title: 'Sunday Service',
         date: 'Every Sunday',
         time: '5:00 PM - 7:00 PM',
         location: 'S Block Building, Vision College',
         description: '',
-        posterUrl: '/images/events/event1.png' // Placeholder image URL
+        posterUrl: '/images/events/event9.png' // Placeholder image URL
     },
     {
-        id: 2,
+        id: 8,
         title: 'Communion Service',
         date: 'Every month on the last Sunday',
         time: '',
         location: 'Church Hall',
         description: '',
-        posterUrl: '/images/events/event2.png'
+        posterUrl: '/images/events/event8.png'
     },
     {
-        id: 3,
+        id: 7,
         title: 'JMC Mini Golf',
         date: 'July 24, 2025',
         time: '4:00 PM',
         location: '25 Callum Brae Dr.Rototuna, Hamilton',
         description: '',
-        posterUrl: '/images/events/event3.png'
+        posterUrl: '/images/events/event7.png'
     },
     {
-        id: 4,
+        id: 6,
         title: `JMC Women's Gathering Day`,
         date: 'July 12, 2025',
         time: '3:00 PM',
         location: '34A Mansel Ave Hillcrest',
         description: '',
-        posterUrl: '/images/events/event4.png'
+        posterUrl: '/images/events/event6.png'
     }
 
 ];
