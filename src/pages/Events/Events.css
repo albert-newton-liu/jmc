@@ -45,22 +45,22 @@
     transform: translateY(-5px); /* Lifts the card slightly on hover */
 }
 
-/* Container for the poster image, used to maintain aspect ratio */
+/* Container for the poster image, used to maintain aspect ratio on desktop */
 .poster-image-container {
     width: 100%; /* Takes full width of its parent card */
-    padding-bottom: 100%; /* Creates a wider aspect ratio for the image (square) */
+    padding-bottom: 100%; /* Creates a square aspect ratio on desktop */
     position: relative; /* Needed for absolute positioning of the image */
     background-color: #f0f0f0; /* Light grey background as a fallback/placeholder */
 }
 
-/* Styling for the actual poster image */
+/* Styling for the actual poster image on desktop */
 .poster-image {
     position: absolute; /* Positions the image relative to its container */
     top: 0;
     left: 0;
     width: 100%; /* Makes image fill the container width */
     height: 100%; /* Makes image fill the container height */
-    object-fit: cover; /* Ensures the image covers the entire area, cropping if necessary, without distortion */
+    object-fit: cover; /* Ensures the image covers the entire area, cropping if necessary */
 }
 
 /* Styling for the event details section within the card */
@@ -147,6 +147,17 @@
     .event-poster-card {
         max-width: 350px; /* Limits the width of cards when stacked */
         margin: 0 auto; /* Centers individual cards horizontally when stacked */
+    }
+
+    /* CRITICAL CHANGE: Override desktop styles for full image display on mobile */
+    .poster-image-container {
+        padding-bottom: 0; /* Remove the square aspect ratio on mobile */
+    }
+
+    .poster-image {
+        position: static; /* Use static positioning to allow natural flow */
+        height: auto; /* Allow image height to adjust based on aspect ratio */
+        object-fit: contain; /* Ensure the entire image is visible without cropping */
     }
 
     .event-details h3 {
