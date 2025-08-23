@@ -1,12 +1,21 @@
 export const ALL_EVENTS_DATA = [
     {
+        id: 11,
+        title: `Women's Gathering Day`,
+        date: '20 September',
+        time: '3:00 PM',
+        location: '34A Mansel Ave Hillcrest',
+        description: '',
+        posterUrl: '/images/events/event11.jpeg' 
+    },
+    {
         id: 10,
         title: 'FAMILY GATHERING',
         date: '27 September',
         time: '3:30 PM - 7:00 PM',
         location: '35 College Drive Gordonton, WEC INTERNATIONAL',
         description: '',
-        posterUrl: '/images/events/event10.jpeg' // Placeholder image URL
+        posterUrl: '/images/events/event10.jpeg' 
     },
     {
         id: 9,
@@ -15,7 +24,7 @@ export const ALL_EVENTS_DATA = [
         time: '5:00 PM - 7:00 PM',
         location: 'S Block Building, Vision College',
         description: '',
-        posterUrl: '/images/events/event9.png' // Placeholder image URL
+        posterUrl: '/images/events/event9.png' 
     },
     {
         id: 8,
