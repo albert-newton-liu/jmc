@@ -9,6 +9,15 @@ export const ALL_EVENTS_DATA = [
         posterUrl: '/images/events/event9.png'
     },
     {
+        id: 13,
+        title: `Men's Gathering Day`,
+        date: '20 September',
+        time: '3:00 PM',
+        location: 'The Verandah Cafe, Rotoroa Drive',
+        description: '',
+        posterUrl: '/images/events/event13.jpeg'
+    },
+    {
         id: 12,
         title: `Church Retreat`,
         date: '22-23 November',
