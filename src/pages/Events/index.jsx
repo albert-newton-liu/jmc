@@ -1,22 +1,41 @@
 // src/pages/Events.js
-import React, { useState } from 'react'; // Import useState hook for managing component state
-import {ALL_EVENTS_DATA} from '../../constants/Constant'
-import './Events.css'; 
+import React, { useState, useEffect } from 'react';
+import './Events.css';
 
 const EVENTS_PER_LOAD = 3; // Defines how many events to load each time the "Load More" button is clicked
 
 const Events = () => {
-    // State to keep track of how many events are currently visible
-    // Initially, it shows EVENTS_PER_LOAD number of events
+    const [allEvents, setAllEvents] = useState([]);
+
     const [visibleEventsCount, setVisibleEventsCount] = useState(EVENTS_PER_LOAD);
 
-    // Slice the ALL_EVENTS_DATA array to get only the events that should be currently visible
-    const visibleEvents = ALL_EVENTS_DATA.slice(0, visibleEventsCount);
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const response = await fetch('https://jubileemulticulturalchurch.com/mng/events_api.php');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                let data = await response.json();
+                data = data.map(event => {
+                    return {
+                        ...event,
+                        posterUrl: 'https://jubileemulticulturalchurch.com' + event.poster_url
+                    };
+                });
+                setAllEvents(data);
+            } catch (error) {
+                console.error("Failed to fetch events:", error);
+            }
+        };
 
-    // Determine if there are more events left to load
-    const hasMoreEvents = visibleEventsCount < ALL_EVENTS_DATA.length;
+        fetchEvents();
+    }, []);
 
-    // Function to handle the "Load More" button click
+    const visibleEvents = allEvents.slice(0, visibleEventsCount);
+
+    const hasMoreEvents = visibleEventsCount < allEvents.length;
+
     const handleLoadMore = () => {
         // Increase the visible events count by EVENTS_PER_LOAD
         setVisibleEventsCount(prevCount => prevCount + EVENTS_PER_LOAD);
