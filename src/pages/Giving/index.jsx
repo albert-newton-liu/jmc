@@ -54,15 +54,15 @@ const Giving = () => {
             <div className="bank-card-details">
               <div className="bank-card-row">
                 <span className="detail-label">Bank:</span>
-                <span className="detail-value">ASB</span>
+                <span className="detail-value">ANZ</span>
               </div>
               <div className="bank-card-row">
                 <span className="detail-label">Account Name:</span>
-                <span className="detail-value">Jubilee Multicultural Church</span>
+                <span className="detail-value">JUBILEE MULTICULTURAL CHURCH TRUST</span>
               </div>
               <div className="bank-card-row">
                 <span className="detail-label">Account Number:</span>
-                <span className="detail-value account-number">12-3232-0022966-00</span>
+                <span className="detail-value account-number">06-0606-0957261-00</span>
               </div>
             </div>
 
